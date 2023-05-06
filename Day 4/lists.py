@@ -15,3 +15,8 @@ state_of_americas[1] = "New York"
 
 print(state_of_americas)
 # ['Delaware', 'New York', 'Georgia']
+
+#adds a item into the end of the list
+state_of_americas.append("Texas")
+print(state_of_americas)
+
