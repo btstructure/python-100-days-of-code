@@ -1,12 +1,9 @@
 from word_list import word_list
 import random
+import hangman_art
 
 #chooses a random word from the word_list in word_list.py
 chosen_word = random.choice(word_list)
-
-#a user entering a letter, and lowercases the user inpit
-
-
 
 #display will hold each letter in the chosen word
 display = []
@@ -19,26 +16,37 @@ for letter in range(word_length):
 
 end_of_game = False
 
-tries = 6
+#the letters the user guessed, right or wrong, so they can't guess the same letter
+guessed_letters = []
+lives = 6
 
-#a for loop to go through each index in the word, if the letter is equal to the letter at the index, the letter will appear in the display
+print(hangman_art.logo)
+
 while not end_of_game:
+    #a user entering a letter, and lowercases the user inpit
     user_guess = input("Guess a letter: ").lower()
 
-
-    for position in range(word_length):
-        letter = chosen_word[position]
-        if letter == user_guess:
-            display[position] = letter
+    if user_guess in guessed_letters:
+        print(f"You already guessed the letter '{user_guess}'.")
+    else:
+        guessed_letters.append(user_guess)
+        if user_guess not in chosen_word:
+            print(f"The letter '{user_guess}' is not in the word.")
+            lives -= 1
+            #prints the stages pictures by their index which depends on the value of lives
         else:
-            tries -= 1
+            #a for loop to go through each index in the word, if the letter is equal to the letter at the index, the letter will appear in the display
+            for position in range(word_length):
+                letter = chosen_word[position]
+                if letter == user_guess:
+                    display[position] = letter
             
-                
+    print(hangman_art.stages[lives])            
     print(display)
 
     if "_" not in display:
         end_of_game = True
-        print("You win")
-    elif tries == 0:
+        print("You win!")
+    elif lives == 0:
         end_of_game = True
         print("You lost")
