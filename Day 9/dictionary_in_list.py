@@ -1,26 +1,45 @@
-#dictionary - a table with a key and value.
+# Instructions
+# You are going to write a program that adds to a travel_log. You can see a travel_log which is a List that contains 2 Dictionaries.
 
-#to create a dictionary {Key: Value}
+# Write a function that will work with the following line of code on line 21 to add the entry for Russia to the travel_log.
 
-programming_dictionary = {
-    "Bug": "An error in a program that prevents the program from running as expected",
-    "Function": "A piece of code that you can easily call over and over again.",
-    "Loop": "The action of doing something over and over again.",
-}
+# add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
+# You've visited Russia 2 times.
 
-#in a dictionary you add square brackets with the key instead of the index
+# You've been to Moscow and Saint Petersburg.
 
-print(programming_dictionary["Bug"])
+# DO NOT modify the travel_log directly. You need to create a function that modifies it.
 
-#Adding new items to dictionary, but if the key already exists it'll replace the value by what you set to equal too
-# programming_dictionary["Loop"] =  "The action of doing something over and over again."
-#print(programming_dictionary)
 
-# #creating an empty dictionary
-# empty_dictionary = {}
-# #or you can do it to wipe an existing dictionary
-# programming_dictionary = {}
 
-for key in programming_dictionary:
-    print(key) #will print the key and not the value
-    print(programming_dictionary[key]) #will print the value based on the key
+
+
+
+travel_log = [
+{
+  "country": "France",
+  "visits": 12,
+  "cities": ["Paris", "Lille", "Dijon"]
+},
+{
+  "country": "Germany",
+  "visits": 5,
+  "cities": ["Berlin", "Hamburg", "Stuttgart"]
+},
+]
+#🚨 Do NOT change the code above
+
+#TODO: Write the function that will allow new countries
+#to be added to the travel_log. 👇
+
+def add_new_country(country_visited, time_visited, cities_visited):
+    new_country = {}
+    new_country["country"] = country_visited
+    new_country["visits"] = time_visited
+    new_country["cities"] = cities_visited
+    travel_log.append(new_country)
+
+
+#🚨 Do not change the code below
+add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
+print(travel_log)
