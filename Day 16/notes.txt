@@ -1,0 +1,2 @@
+attributes - a variable that is associated to a model object. things that they have
+methods - functions that a modeled object can do. things that they do
