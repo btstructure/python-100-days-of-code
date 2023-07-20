@@ -1,2 +1,9 @@
 attributes - a variable that is associated to a model object. things that they have
 methods - functions that a modeled object can do. things that they do
+
+car = CarBlueprint()
+car is the object 
+CarBlueprint is the class
+
+car.speed
+speed is an attribute, from the car object get the speed attribute
